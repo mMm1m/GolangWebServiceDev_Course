@@ -1,5 +1,1 @@
-Это примеры кода из курса "Разработка веб-сервисов на языке Go (Golang)", автор Василий Романов.
-
-https://stepik.org/course/187490/promo
-
-Условия использования смотрите в файле LICENSE.
+Note: Every hometask in different branches in "99/hw" folder
