@@ -83,7 +83,7 @@ func printNodes(out io.Writer, nodes []TreeNode, parentPrefix string, flag bool)
 	for i, node := range nodes {
 		// последняя нода в дереве
 		if i == lastIdx {
-			prefix = "└───"
+			prefix = "└ ───"
 			childPrefix = "\t"
 		}
 		if !node.info.IsDir() && flag {
