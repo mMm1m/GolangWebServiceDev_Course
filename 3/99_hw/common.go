@@ -19,6 +19,9 @@ func SlowSearch(out io.Writer) {
 		panic(err)
 	}
 
+	// 110 ms / 202,56 mb
+	// заменить на более эффективное считывание данных из файла
+	// например, создать структуру и передавать данные в JSON-формате
 	fileContents, err := ioutil.ReadAll(file)
 	if err != nil {
 		panic(err)
@@ -35,6 +38,9 @@ func SlowSearch(out io.Writer) {
 	for _, line := range lines {
 		user := make(map[string]interface{})
 		// fmt.Printf("%v %v\n", err, line)
+
+		// 740 ms / 138,03 mb
+		// неэффективный распарсинг
 		err := json.Unmarshal([]byte(line), &user)
 		if err != nil {
 			panic(err)
@@ -59,6 +65,8 @@ func SlowSearch(out io.Writer) {
 				// log.Println("cant cast browser to string")
 				continue
 			}
+			// 870 ms / 479,04 mb
+			// замена неэффективного поиска по паттерну регулярного выражения
 			if ok, err := regexp.MatchString("Android", browser); ok && err == nil {
 				isAndroid = true
 				notSeenBefore := true
@@ -81,6 +89,8 @@ func SlowSearch(out io.Writer) {
 				// log.Println("cant cast browser to string")
 				continue
 			}
+
+			// уже описано
 			if ok, err := regexp.MatchString("MSIE", browser); ok && err == nil {
 				isMSIE = true
 				notSeenBefore := true
