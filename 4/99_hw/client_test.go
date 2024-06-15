@@ -1,3 +1,9 @@
 package main
 
-// код писать тут
+import "testing"
+
+func Test(t *testing.T) {
+	server := TestingServer(ACCESS_TOKEN)
+	defer server.close()
+
+}
